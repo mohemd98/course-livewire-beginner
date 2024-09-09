@@ -1,0 +1,37 @@
+<div class="form-container">
+    <h3 class="text-center mb-4">Create New Account</h3>
+    @if (session('success'))
+          <span class="text-green-500" action="" class="">{{session('success')}}</span>
+    @endif
+    <form wire:submit='create'>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input wire:model='name' type="text" class="form-control" id="name" placeholder="name..">
+            @error('name')
+                  <span class="text-red-500 text-xs" action="" class="">{{$message}}</span>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input wire:model='email' type="email" class="form-control" id="email" placeholder="email..">
+            @error('email')
+                   <span class="text-red-500 text-xs" action="" class="">{{$message}}</span>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input wire:model='password' type="password" class="form-control" id="password" placeholder="Password">
+            @error('password')
+                  <span class="text-red-500 text-xs" action="" class="">{{$message}}</span>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label for="profile-picture" class="form-label">Profile picture</label>
+            <input wire:model='image' accept="image/png , image/jpeg" type="file" class="form-control" id="profile-picture">
+            @error('image')
+                  <span class="text-red-500 text-xs" action="" class="">{{$message}}</span>
+            @enderror
+        </div>
+        <button type="submit" class="btn btn-create w-100">Create+</button>
+    </form>
+</div>
