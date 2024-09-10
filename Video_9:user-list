@@ -1,0 +1,26 @@
+<div>
+    <div class="table-container">
+        <h3 class="mb-4">Users List</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Joined</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($users as $user)
+                <tr wire:key='{{$user->id}}'>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->created_at}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <div class="">
+            {{$users->links()}}
+        </div>
+    </div>
+</div>
