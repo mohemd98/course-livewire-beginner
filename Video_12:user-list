@@ -1,0 +1,23 @@
+<div>
+    <div class="user-list-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4>Users List</h4>
+            <span class="badge">{{$count}}</span>
+        </div>
+        <div class="mb-2">
+            <input wire:model='search' class="form-control form-control-lg mb-2" type="text">
+            <button  wire:click='update' type="button" class="btn btn-primary">search</button>
+        </div>
+
+        @foreach ($users as $user)
+        <div wire:key='{{$user->id}}' class="user-item">
+            <div class="user-info">
+                <div class="user-name">{{$user->name}}</div>
+                <div class="user-email">{{$user->email}}</div>
+            </div>
+            <button class="btn view-btn">View</button>
+        </div>
+        @endforeach
+        {{-- <div class="">     {{$users->links()}} </div> --}}
+    </div>
+</div>
