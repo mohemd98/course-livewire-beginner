@@ -1,0 +1,44 @@
+<div>
+    <div class="contact-form-container">
+        <h3 class="form-heading">Contact Us</h3>
+        <p class="form-text">Got a technical issue? Want to send feedback about a beta feature? Need details about our
+            Business plan? Let us know.</p>
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+
+        <form wire:submit='submitForm'>
+            <div class="mb-3">
+                <label for="email" class="form-label">Your email</label>
+                <input wire:model='email' type="email" class="form-control" id="email" placeholder="Enter your email">
+                @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
+            </div>
+
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input wire:model='subject' type="text" class="form-control" id="subject" placeholder="Enter subject">
+                @error('subject')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
+            </div>
+
+            <div class="mb-4">
+                <label for="message" class="form-label">Your message</label>
+                <textarea wire:model='message' class="form-control form-control-textarea" id="message" rows="5"
+                    placeholder="Enter your message"></textarea>
+                @error('message')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+
+            </div>
+
+            <button type="submit" class="btn btn-send">Send message</button>
+        </form>
+    </div>
+</div>
