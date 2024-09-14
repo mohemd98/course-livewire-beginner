@@ -1,0 +1,21 @@
+<div>
+    <br>
+    <select wire:model.live="companyID" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg">
+        <option value="">Select Company</option>
+
+        @foreach ( $this->companies as $company)
+        <option value="{{$company->id}}">{{$company->name}}</option>
+        @endforeach
+
+    </select>
+    <br>
+    <select wire:model.live="phoneID" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg">
+
+        <option value="">Select phone</option>
+
+        @foreach ( $this->phones as $phone)
+        <option value="{{$phone->id}}">{{$phone->name}}</option>
+        @endforeach
+
+    </select>
+</div>
